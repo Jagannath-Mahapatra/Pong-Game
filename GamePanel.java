@@ -21,7 +21,8 @@ public class GamePanel extends JPanel implements Runnable{
     Paddle pad2;
     Ball ball;
     Score score;
-
+    int maxScore;
+    
     GamePanel(){
         newPaddles();
         newBall();
@@ -30,7 +31,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
         this.addKeyListener(new ActListener());
         this.setPreferredSize(DIMENSION);
-
+        setMaxScore(0);
         thread = new Thread(this);
         thread.start();
     }
@@ -120,9 +121,11 @@ public class GamePanel extends JPanel implements Runnable{
             newBall();
         }
     }
-
+    void setMaxScore(int maxScore){
+        this.maxScore = maxScore;
+    }
     public void checkWinner(){
-        if(score.player1Score > 20){
+        if(score.player1Score > maxScore){
             int choice = JOptionPane.showConfirmDialog(null, "Player 1 Wins. Play again?", "Game Over", JOptionPane.YES_NO_OPTION);
             if(choice == 0){
                 score.player1Score = 0;
@@ -133,7 +136,7 @@ public class GamePanel extends JPanel implements Runnable{
                 System.exit(0);
             }
         }
-        else if(score.player2Score > 20){
+        else if(score.player2Score > maxScore){
             int choice = JOptionPane.showConfirmDialog(null, "Player 2 Wins. Play again?", "Game Over", JOptionPane.YES_NO_OPTION);
             if(choice == 0){
                 score.player1Score = 0;

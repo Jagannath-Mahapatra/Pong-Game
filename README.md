@@ -3,9 +3,9 @@
 
 ## Screenshots
 
-![App Screenshot](PongGame/Screenshots/1.png "Game")
+![App Screenshot](Screenshots/1.png "Game")
 
-![App Screenshot](PongGame/Screenshots/2.png "Reset Message")
+![App Screenshot](Screenshots/2.png "Reset Message")
 
 ## Tech Stack
 
